@@ -1,0 +1,8 @@
+
+{
+  "name": "SyncNotes AI",
+  "description": "An AI-powered meeting intelligence platform that automates transcription, summarization, task extraction, and collaborative mind mapping.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
