@@ -176,7 +176,7 @@ const App: React.FC = () => {
       });
       const data = await resp.json();
       if (!resp.ok) throw new Error(data?.error || 'Email service error');
-      alert('Email with report sent successfully ✅');
+      alert('Email with report sent successfully ');
     } catch (err) {
       console.error('Failed to send report:', err);
       alert('Published but failed to send email: ' + (err instanceof Error ? err.message : String(err)));
@@ -193,12 +193,12 @@ const App: React.FC = () => {
           </div>
           <div className="space-y-4">
             <button onClick={() => setRole(UserRole.ADMIN)} className="w-full flex flex-col items-center p-6 bg-white border-2 border-slate-100 rounded-2xl hover:border-blue-500 hover:shadow-lg transition-all group">
-              <span className="text-3xl mb-2">💼</span>
+              <span className="text-3xl mb-2"></span>
               <span className="font-bold text-slate-800">Admin Portal</span>
               <span className="text-xs text-slate-400">Manage & Process Meetings</span>
             </button>
             <button onClick={() => setRole(UserRole.MEMBER)} className="w-full flex flex-col items-center p-6 bg-white border-2 border-slate-100 rounded-2xl hover:border-green-500 hover:shadow-lg transition-all group">
-              <span className="text-3xl mb-2">👥</span>
+              <span className="text-3xl mb-2"></span>
               <span className="font-bold text-slate-800">Member Portal</span>
               <span className="text-xs text-slate-400">View Shared Insights</span>
             </button>
@@ -233,7 +233,7 @@ const App: React.FC = () => {
             <h2 className="text-2xl font-bold text-slate-800">Intelligence Dashboard</h2>
             {filteredMeetings.length === 0 ? (
               <div className="text-center py-24 bg-white rounded-3xl border border-dashed border-slate-300">
-                <span className="text-5xl block mb-4">📂</span>
+                <span className="text-5xl block mb-4"></span>
                 <p className="text-slate-500 font-medium">No meetings available yet.</p>
               </div>
             ) : (
@@ -292,12 +292,12 @@ const App: React.FC = () => {
                 {role === UserRole.ADMIN && activeMeeting.summary && (
                   <>
                     <button onClick={() => publishMeeting(activeMeeting.id)} className={`px-6 py-3 rounded-2xl font-bold text-sm shadow-md transition ${activeMeeting.status === 'published' ? 'bg-slate-200 text-slate-500' : 'bg-green-600 text-white hover:bg-green-700'}`}>
-                      {activeMeeting.status === 'published' ? '✅ Published' : '🚀 Publish Intelligence'}
+                      {activeMeeting.status === 'published' ? ' Published' : ' Publish Intelligence'}
                     </button>
-                    <button onClick={() => setView('report')} className="bg-indigo-600 text-white px-6 py-3 rounded-2xl font-bold text-sm shadow-md hover:bg-indigo-700">📄 View Report</button>
+                    <button onClick={() => setView('report')} className="bg-indigo-600 text-white px-6 py-3 rounded-2xl font-bold text-sm shadow-md hover:bg-indigo-700"> View Report</button>
                   </>
                 )}
-                <button onClick={() => window.print()} className="bg-white border px-6 py-3 rounded-2xl font-bold text-sm hover:bg-slate-50 shadow-sm">🖨️ PDF</button>
+                <button onClick={() => window.print()} className="bg-white border px-6 py-3 rounded-2xl font-bold text-sm hover:bg-slate-50 shadow-sm"> PDF</button>
               </div>
             </div>
 
@@ -309,10 +309,10 @@ const App: React.FC = () => {
                     <p className="opacity-80 mb-8 italic">"Alex: Alright, let’s get started..."</p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                       <button onClick={isRecording ? stopRecording : startRecording} className={`flex-1 px-8 py-5 rounded-2xl font-black text-lg transition shadow-2xl ${isRecording ? 'bg-red-500 hover:bg-red-600 animate-pulse' : 'bg-white text-blue-600 hover:scale-105'}`}>
-                        {isRecording ? '⏹️ STOP & ANALYZE' : '🎙️ RECORD SESSION'}
+                        {isRecording ? ' STOP & ANALYZE' : '🎙️ RECORD SESSION'}
                       </button>
                       <button onClick={() => fileInputRef.current?.click()} className="flex-1 px-8 py-5 rounded-2xl font-black text-lg bg-blue-500/20 border border-white/30 text-white hover:bg-blue-500/40 transition">
-                        📁 UPLOAD AUDIO
+                         UPLOAD AUDIO
                       </button>
                       <input type="file" ref={fileInputRef} onChange={handleFileUpload} accept="audio/*" className="hidden" />
                     </div>
